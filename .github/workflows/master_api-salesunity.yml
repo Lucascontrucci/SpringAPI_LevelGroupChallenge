@@ -32,7 +32,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: my-artifact
-          path: path/to/artifact/directory
+          path: build
           
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v3
