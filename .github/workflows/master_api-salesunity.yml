@@ -22,10 +22,8 @@ jobs:
           java-version: '21'
 
       - name: Set up Gradle
-        uses: gradle/setup-gradle@v3  
-        with:
-          gradle-version: 7.4
-        
+        uses: gradle/gradle-build-action@v3    
+      
       - name: Build with Gradle
         run: ./gradlew build
 
