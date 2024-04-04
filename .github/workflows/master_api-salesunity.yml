@@ -33,6 +33,12 @@ jobs:
         with:
           name: systemapp
           path: build
+
+      - name: Upload artifact for deployment job
+        uses: actions/upload-artifact@v3
+        with:
+          name: systemapp
+          path: '${{ github.workspace }}/build/libs/*.jar'
           
 
   deploy:
