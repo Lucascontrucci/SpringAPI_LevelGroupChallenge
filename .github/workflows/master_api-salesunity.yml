@@ -63,5 +63,5 @@ jobs:
         with:
           app-name: 'API-SalesUnity'
           slot-name: 'Production'
-          package: '${{ github.workspace }}/src/main/java/com/salesunity/systemapp/SystemappApplication.java'
+      
           
