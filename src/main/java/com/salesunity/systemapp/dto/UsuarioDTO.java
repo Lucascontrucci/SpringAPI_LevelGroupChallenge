@@ -20,7 +20,7 @@ public class UsuarioDTO {
 
     private String senha;
 
-    private boolean admin;
+    private String role;
 
     private Long empresa_id;
 
@@ -31,8 +31,11 @@ public class UsuarioDTO {
         this.name = usuario.getName();
         this.email = usuario.getEmail();
         this.senha = usuario.getSenha();
-        this.admin = usuario.isAdmin();
+        this.role = usuario.getRole().getRole();
         this.empresa_id = usuario.getEmpresa().getId();
-        this.compras_id = usuario.getCompras().stream().map(Pedido::getId).toList();
+        if(usuario.getCompras() != null){
+            this.compras_id = usuario.getCompras().stream().map(Pedido::getId).toList();
+        }
+
     }
 }
