@@ -1,7 +1,7 @@
 # Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
 # More GitHub Actions for Azure: https://github.com/Azure/actions
 
-name: Build and deploy JAR app to Azure Web App - Api-SalesUnity
+name: Build and deploy JAR app to Azure Web App - API-SalesUnity
 
 on:
   push:
@@ -21,14 +21,19 @@ jobs:
         with:
           java-version: '21'
 
-      - name: Build with Maven
-        run: mvn clean install
+      - name: Set up Gradle
+        uses: gradle/gradle-build-action@v3    
+      
+      - name: Build with Gradle
+        run: ./gradlew build
+
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v3
         with:
-          name: java-app
-          path: '${{ github.workspace }}/target/*.jar'
+          name: systemapp
+          path: '${{ github.workspace }}/build/libs/*.jar'
+          
 
   deploy:
     runs-on: windows-latest
@@ -43,20 +48,18 @@ jobs:
       - name: Download artifact from build job
         uses: actions/download-artifact@v3
         with:
-          name: java-app
+          name: systemapp
       
       - name: Login to Azure
         uses: azure/login@v1
         with:
-          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_E5EE66CF535240EF99F572C9F313A26A }}
-          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_2D30DE6D002A40AAB37967ADBF6BCCF2 }}
-          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_0212A9917A5343B6A5A41A721C1F459C }}
+          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_31092690C7C547019D28B9BA699A8854 }}
+          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_B888CC8272884FC8BF267331E41D08E5 }}
+          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_62BBE85F1C2F4755ABD45A7E8271CED2 }}
 
       - name: Deploy to Azure Web App
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v2
         with:
-          app-name: 'Api-SalesUnity'
+          app-name: 'API-SalesUnity'
           slot-name: 'Production'
-          package: '*.jar'
-          
