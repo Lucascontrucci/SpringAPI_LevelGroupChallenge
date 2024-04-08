@@ -29,7 +29,7 @@ A equipe SalesUnity esta desenvolvendo uma aplicação web que simplifica o proc
 
 ## Video da aplicação
 
-Link: 
+Link: https://youtu.be/1tdoSvHnH7M
 
 ## Deploy e Testes
 
