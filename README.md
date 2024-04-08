@@ -40,24 +40,84 @@ A equipe SalesUnity esta desenvolvendo uma aplicação web que simplifica o proc
 
 - Cadastro de Usuario e Login
   - /auth/login (POST) (LIVRE)
+ ```
+{
+    "email":"teste223",
+    "senha":"teste"
+}
+
+  ```
   - /auth/register (POST) (LIVRE)
+ 
+ ```
+{
+    "name":"TesteuserEmpresa",
+    "email":"teste2223",
+    "senha":"teste",
+    "role": "ADMIN",
+    "empresa_id":4
+}
+
+  ```
+
+    
 - Criação
+  
   - /api/v1/produtos (POST) (ADMIN) (TOKEN)
+```
+    {
+    "description":"lote de caixas",
+    "price":30,
+    "category_id":2,
+    "productType_id":2,
+    "empresa_id":4
+}
+```
   - /api/v1/empresas (POST) (LIVRE)
-  - /api/v1/pedidos (POST) (USER) (TOKEN)
+```
+{
+    "name":"empresaestde22",
+    "cnpj":"2231232",
+    "type":2,//tipo da empresa fornecedor ou cliente
+    "email":"empresa@edmpresa"
+}
+```
+  - /api/v1/tipoprodutos (POST) (USER) (TOKEN)
+```
+{
+    "name":"Caixa de papelao"
+}
+```
+  - /api/v1/categorias (POST) (USER) (TOKEN)
+```
+{
+    "name":"caixas"
+}
+```
   - /api/v1/compras (POST) (USER) (TOKEN)
+    
 - Atualizar
+  
   - /api/v1/empresas (PUT) (USER) (TOKEN)
+```
+{
+    "id":4,
+    "name":"TesteAdmin",
+    "cnpj":"2331234",
+    "type":2,//tipo da empresa fornecedor ou cliente
+    "email":"testeadmin"
+}
+```    
   - /api/v1/usuarios (PUT) (USER) (TOKEN)
   - /api/v1/produtos (PUT) (USER) (TOKEN)
   - /api/v1/pedidos (PUT) (USER) (TOKEN)
   - /api/v1/compras (PUT) (USER) (TOKEN)
 - Apagar
-  - /api/v1/produtos (DELETE) (USER) (TOKEN)
-  - /api/v1/usuario (DELETE) (USER) (TOKEN)
-  - /api/v1/empresa (DELETE) (USER) (TOKEN)
-  - /api/v1/pedidos (DELETE) (USER) (TOKEN)
-  - /api/v1/compras (DELETE) (USER) (TOKEN)
+  - /api/v1/produtos/id (DELETE) (USER) (TOKEN)
+  - /api/v1/usuario/id (DELETE) (USER) (TOKEN)
+  - /api/v1/empresa/id (DELETE) (USER) (TOKEN)
+  - /api/v1/pedidos/id (DELETE) (USER) (TOKEN)
+  - /api/v1/compras/id (DELETE) (USER) (TOKEN)
 - Get Id
   - /api/v1/produtos/id (GET) (USER) (TOKEN)
   - /api/v1/usuario/id (GET) (USER) (TOKEN)
@@ -71,6 +131,7 @@ A equipe SalesUnity esta desenvolvendo uma aplicação web que simplifica o proc
 - Get All
   - /api/v1/categorias (GET) (USER) (TOKEN)
   - /api/v1/tipoprodutos (GET) (USER) (TOKEN)
+    
 
 ## Pontos a melhorar:
   - Segurança e acesso a endpoints:
