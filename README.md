@@ -65,7 +65,7 @@ A equipe SalesUnity esta desenvolvendo uma aplicação web que simplifica o proc
   
   - /api/v1/produtos (POST) (ADMIN) (TOKEN)
 ```
-    {
+{
     "description":"lote de caixas",
     "price":30,
     "category_id":2,
