@@ -8,6 +8,11 @@ A equipe SalesUnity esta desenvolvendo uma aplicação web que simplifica o proc
 - Simplificar o processo de solicitação de cotações e compras, oferecendo uma abordagem mais eficaz e ágil para empresas de diversos setores.
 - Gerar impactos financeiros positivos para as empresas, através da automação e simplificação dos processos, resultando em economias operacionais consideráveis, redução da necessidade de mão de obra e agilização do ciclo de compras.
 
+### Arquitetura da solução:
+
+![image](https://github.com/Lucascontrucci/SpringAPI_LevelGroupChallenge/assets/146679003/8cdcbec4-31b4-4323-9dfa-c17eb22de3f3)
+
+
 ### Tecnologias utilizadas:
 
 ![Oracle](https://img.shields.io/badge/Oracle-F80000?style=for-the-badge&logo=oracle&logoColor=white)
