@@ -27,15 +27,84 @@ A equipe SalesUnity esta desenvolvendo uma aplicação web que simplifica o proc
 ## Diagrama atualizado:
 ![Diagrama](https://github.com/AdurraIS/SpringAPI_LevelGroupChallenge/assets/119917719/8ed2c8a1-c750-4ba0-ad9f-332e4ee471cb)
 
-## Principais funcionalidades:
-- Cadastro de Empresas
-- Cadastro de Usuarios
-- Criação de Pedido
-- Gerenciamento de Produtos
-- Gerenciamento de Compras
-- Gerenciamento de Pedidos
-- Segurança utilizando JWT Tokens
-- Criptografia de Senhas
+## Video da aplicação
+
+Link: 
+
+## Deploy e Testes
+
+  - 1- Clone da Aplicação
+      - Realize o Fork da aplicação
+  ![image](https://github.com/Lucascontrucci/SpringAPI_LevelGroupChallenge/assets/146679003/86b39009-b047-46ed-93dd-dba19fb73b5e)
+
+  - 2- Criar Aplicação Web
+
+    ![image](https://github.com/Lucascontrucci/SpringAPI_LevelGroupChallenge/assets/146679003/2304ec03-5e7c-4d2f-993c-e86a344d48e1)
+
+    ![image](https://github.com/Lucascontrucci/SpringAPI_LevelGroupChallenge/assets/146679003/6aa542f2-f5fa-4934-9f55-9a4b9e73c754)
+
+      - Não utilizar Base de Dados
+        
+    ![image](https://github.com/Lucascontrucci/SpringAPI_LevelGroupChallenge/assets/146679003/b649297c-0e7e-4735-944e-0b5de632521b)
+
+      - Adicionar implementação continua
+
+    ![image](https://github.com/Lucascontrucci/SpringAPI_LevelGroupChallenge/assets/146679003/311999ac-a150-464b-b422-9141447f6a6c)
+
+      - Ativar acesso público
+   
+    ![image](https://github.com/Lucascontrucci/SpringAPI_LevelGroupChallenge/assets/146679003/51c2cb9d-26e8-41fb-953a-7b4597270d19)
+
+      - Não é necessário ativar application insights
+   
+    ![image](https://github.com/Lucascontrucci/SpringAPI_LevelGroupChallenge/assets/146679003/4a520b11-593d-43ce-b753-87d4763358ea)
+
+  - 3- Modificação de Action
+      - No Repositorio clonado do github, modifique a workflow criada pela azure
+
+        ![image](https://github.com/Lucascontrucci/SpringAPI_LevelGroupChallenge/assets/146679003/1d859124-ce15-4374-ae9d-b7a1833058a0)
+
+      - Excluir código maven e substituir pelo código abaixo, também eliminando a última linha Package do Deploy Azure
+
+```
+      - name: Set up Gradle
+        uses: gradle/gradle-build-action@v3    
+      
+      - name: Build with Gradle
+        run: ./gradlew build
+
+
+      - name: Upload artifact for deployment job
+        uses: actions/upload-artifact@v3
+        with:
+          name: systemapp
+          path: '${{ github.workspace }}/build/libs/*.jar'
+```
+
+  ![image](https://github.com/Lucascontrucci/SpringAPI_LevelGroupChallenge/assets/146679003/e15ac515-649f-4321-b4c7-02f87334dc93)
+
+  ![image](https://github.com/Lucascontrucci/SpringAPI_LevelGroupChallenge/assets/146679003/ec90d35f-c429-4148-b1ae-26c02e2e4896)
+
+  - 4- Após o Deploy da aplicação, a aplicação estará funcionando corretamente para o uso das requisições, cópie o link no azure e utilize corforme os endpoints
+
+![image](https://github.com/Lucascontrucci/SpringAPI_LevelGroupChallenge/assets/146679003/93551d8d-5daa-4c6d-978e-9f5ea85b8a54)
+
+   - Iniciar o cadastro das endpoint, cadastrando uma empresa com o método POST, conforme os códigos:
+
+![image](https://github.com/Lucascontrucci/SpringAPI_LevelGroupChallenge/assets/146679003/c66ef5f7-7416-49bb-883f-5969d040905d)
+
+  - Realizar o cadastro e Login, Copiar a chave de acesso e utilizar nas requisições posteriores.
+
+![image](https://github.com/Lucascontrucci/SpringAPI_LevelGroupChallenge/assets/146679003/38e6612f-5cb9-4a3f-a0f3-5a976e54b440)
+
+![image](https://github.com/Lucascontrucci/SpringAPI_LevelGroupChallenge/assets/146679003/42e73652-1ca9-4e1d-843e-9598d22856ce)
+
+  - O Token é usado no Authorization, com o type = Bearer Token
+
+![image](https://github.com/Lucascontrucci/SpringAPI_LevelGroupChallenge/assets/146679003/46f4ab2c-0833-4be1-a135-d5ee75945b49)
+
+
+      
 ## Endpoints(Em breve no Swagger):
 
 - Cadastro de Usuario e Login
@@ -131,14 +200,3 @@ A equipe SalesUnity esta desenvolvendo uma aplicação web que simplifica o proc
 - Get All
   - /api/v1/categorias (GET) (USER) (TOKEN)
   - /api/v1/tipoprodutos (GET) (USER) (TOKEN)
-    
-
-## Pontos a melhorar:
-  - Segurança e acesso a endpoints:
-    - Exemplo: Atualmente um usuario de uma empresa "x" pode mudar o nome da empresa "y".
-  - Adicionar métodos de pesquisa:
-    - Exemplo: Pesquisar produto por nome.
-  - Adicionar validações:
-    - Exemplo: Validação de cnpj e validação de email.
-## Dificuldades e aprendizados:
-  Além de eu ter refatorado em 8 dias a aplicação inteira, eu ainda quis me desafiar a aprender Spring Security para fazer a autenticação. No começo eu achei muito massante e conforme eu fui fazendo e entendendo, percebi que fazer o simples não é díficil, porém, é um tema muito complexo e profundo e ainda tenho muito a aprender.
